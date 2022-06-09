@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev -p 8081",
+    "dev": "next dev -p 8082",
     "build": "next build",
     "start": "next start",
     "migrate": "npx prisma migrate dev",
@@ -13,19 +13,33 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^3.14.0",
+    "@prisma/client": "^3.15.0",
+    "@types/graphql-fields": "^1.3.4",
     "apollo-server-micro": "^3.8.2",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "class-validator": "^0.13.2",
     "graphql": "^15.8.0",
+    "graphql-fields": "^2.0.3",
+    "graphql-scalars": "^1.17.0",
     "micro-cors": "^0.1.1",
     "next": "^12.1.6",
+    "prisma": "^3.15.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.4.0",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
+    "@babel/plugin-proposal-decorators": "^7.18.2",
+    "@babel/plugin-proposal-private-methods": "^7.17.12",
+    "@babel/plugin-proposal-private-property-in-object": "^7.17.12",
     "@types/micro-cors": "^0.1.2",
     "@types/node": "^17.0.39",
     "@types/react": "^18.0.11",
+    "typegraphql-prisma": "^0.20.4",
     "typescript": "^4.7.3"
   }
 }

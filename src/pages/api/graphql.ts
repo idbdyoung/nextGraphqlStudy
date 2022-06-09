@@ -1,31 +1,36 @@
+import "reflect-metadata";
 import { ApolloServer } from "apollo-server-micro";
-import cors from "micro-cors";
+import { buildSchema } from "type-graphql";
 
-import { typeDefs, resolvers } from "@/apollo/typeDefs-resolvers/index";
+import { resolvers } from "@/generated/type-graphql";
 import contextFunction from "@/apollo/server/context";
 
-import type { IncomingMessage, ServerResponse } from "http";
+import type { NextApiRequest, NextApiResponse, PageConfig } from "next";
 
-const Cors = cors();
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema: await buildSchema({
+    resolvers,
+  }),
   context: contextFunction,
 });
-
 const startServer = server.start();
 
-export default Cors(async function handler(
-  req: IncomingMessage,
-  res: ServerResponse
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
+  if (req.method === "OPTIONS") {
+    res.end();
+    return false;
+  }
+
   await startServer;
   await server.createHandler({
     path: "/api/graphql",
   })(req, res);
-});
+}
 
-export const config = {
+export const config: PageConfig = {
   api: {
     bodyParser: false,
   },

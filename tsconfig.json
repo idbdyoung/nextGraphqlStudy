@@ -3,6 +3,8 @@
     "target": "es2018",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext", "ESNext.AsyncIterable"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "allowJs": true,
     "jsx": "preserve",
     "noEmit": true,
@@ -18,7 +20,8 @@
     "paths": {
       "@/styles/*": ["styles/*"],
       "@/apollo/*": ["apollo/*"],
-      "@/libs/*": ["libs/*"]
+      "@/libs/*": ["libs/*"],
+      "@/generated/*": ["../prisma/generated/*"]
     }
   },
   "exclude": ["node_modules"],
