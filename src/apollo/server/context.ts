@@ -1,4 +1,4 @@
-import prisma from "@/libs/client";
+import prisma from "@/libs/prisma";
 
 import type { ContextFunction } from ".";
 
